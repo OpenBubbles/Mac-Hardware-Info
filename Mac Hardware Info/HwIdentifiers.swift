@@ -84,12 +84,12 @@ func getHwInfo() -> Bbhwinfo_HwInfo {
     
     return Bbhwinfo_HwInfo.with {
         $0.inner = Bbhwinfo_HwInfo.InnerHwInfo.with({
-            $0.productName = getItem(deviceTree, "product-name") ?? getItem(deviceTree, "model")!
+            $0.productName = getItem(deviceTree, "product-name")?.trimmingCharacters(in: CharacterSet(["\0"])) ?? getItem(deviceTree, "model")!
             $0.ioMacAddress = getMacAddress()
             $0.platformSerialNumber = getString(deviceTree, "IOPlatformSerialNumber")!
             $0.platformUuid = getString(deviceTree, "IOPlatformUUID")!
             $0.rootDiskUuid = getItem(chosenTree, "boot-uuid")!.trimmingCharacters(in: CharacterSet(["\0"]))
-            $0.boardID = getItem(deviceTree, "board-id") ?? "Mac-" + getData(chosenTree, "board-id")!.map { String(format: "%02hhx", $0) }.joined()
+            $0.boardID = getItem(deviceTree, "board-id")?.trimmingCharacters(in: CharacterSet(["\0"])) ?? "Mac-" + getData(chosenTree, "board-id")!.map { String(format: "%02hhx", $0) }.joined()
             $0.osBuildNum = sysctl(name: "kern.osversion")
             $0.platformSerialNumberEnc = getData(ioPower, "Gq3489ugfi")!
             $0.platformUuidEnc = getData(ioPower, "Fyp98tpgj")!
