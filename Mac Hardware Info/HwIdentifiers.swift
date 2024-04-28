@@ -59,7 +59,7 @@ func getString(_ device: io_registry_entry_t, _ val: String) -> String? {
 
 func getItem(_ device: io_registry_entry_t, _ val: String) -> String? {
     let value = getData(device, val)
-    if (value == nil) {
+    if value == nil {
         return nil
     }
     return String(data: value!, encoding: .utf8)
@@ -75,7 +75,7 @@ func getHwInfo() -> Bbhwinfo_HwInfo {
     let chosenTree = IORegistryEntryFromPath(getMainPort(), "IODeviceTree:/chosen")
     
     var rom = getData(optionsTree, "4D1EDE05-38C7-4A6A-9CC6-4BCCA8B38C14:ROM")
-    if (rom == nil) {
+    if rom == nil {
         // m1
         let uniqueChipId = getData(chosenTree, "unique-chip-id")!
         let digest = SHA256.hash(data: uniqueChipId)

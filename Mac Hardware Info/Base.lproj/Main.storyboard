@@ -87,11 +87,11 @@
             <objects>
                 <viewController id="XfG-lQ-9wD" customClass="ViewController" customModule="Mac_Hardware_Info" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="m2S-Jp-Qdl">
-                        <rect key="frame" x="0.0" y="0.0" width="435" height="563"/>
+                        <rect key="frame" x="0.0" y="0.0" width="435" height="583"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0fJ-Hn-6rN">
-                                <rect key="frame" x="15" y="532" width="220" height="16"/>
+                                <rect key="frame" x="15" y="552" width="220" height="16"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" title="Prevent Sharing" id="Xz6-ft-O5m">
                                     <font key="font" usesAppearanceFont="YES"/>
@@ -100,7 +100,7 @@
                                 </textFieldCell>
                             </textField>
                             <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" id="q66-jg-m31">
-                                <rect key="frame" x="15" y="489" width="402" height="32"/>
+                                <rect key="frame" x="15" y="509" width="402" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" alignment="left" title="Prevent further sharing of these identifiers. Apple can become suspicious after over 20 users use one Mac." id="7r0-A0-Rro">
                                     <font key="font" metaFont="system"/>
@@ -109,14 +109,14 @@
                                 </textFieldCell>
                             </textField>
                             <switch horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" baseWritingDirection="leftToRight" alignment="left" translatesAutoresizingMaskIntoConstraints="NO" id="Z0b-PI-ipl">
-                                <rect key="frame" x="335" y="527" width="114" height="25"/>
+                                <rect key="frame" x="335" y="547" width="114" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                                 <connections>
                                     <action selector="toggleChanged:" target="XfG-lQ-9wD" id="f5s-c4-K07"/>
                                 </connections>
                             </switch>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2ve-hv-HoG">
-                                <rect key="frame" x="136" y="13" width="166" height="32"/>
+                                <rect key="frame" x="136" y="33" width="166" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="push" title="Copy Activation Code" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="fyD-gi-ZLX">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -127,19 +127,29 @@
                                 </connections>
                             </button>
                             <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="m6R-mD-lKX" customClass="QRCodeDocumentView" customModule="QRCode">
-                                <rect key="frame" x="17" y="60" width="398" height="400"/>
+                                <rect key="frame" x="17" y="80" width="398" height="400"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             </customView>
+                            <textField hidden="YES" focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nDH-ah-5NI">
+                                <rect key="frame" x="131" y="16" width="176" height="16"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="Code can only be used once" id="JEo-vH-syj">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="systemGrayColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
                         </subviews>
                     </view>
                     <connections>
+                        <outlet property="onceDisclaimer" destination="nDH-ah-5NI" id="vci-QB-a2K"/>
                         <outlet property="preventSharing" destination="Z0b-PI-ipl" id="Ncr-Aj-QYb"/>
                         <outlet property="qrCodeView" destination="m6R-mD-lKX" id="3j8-XA-0dJ"/>
                     </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="32.5" y="1049.5"/>
+            <point key="canvasLocation" x="32.5" y="1059.5"/>
         </scene>
     </scenes>
 </document>
