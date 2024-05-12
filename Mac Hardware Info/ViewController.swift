@@ -179,6 +179,10 @@ class ViewController: NSViewController {
         } else {
             let output = getData().base64EncodedString()
             NSPasteboard.general.writeObjects([output as NSString])
+            button.title = "Copied!"
+            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                button.title = "Copy Activation Code"
+            }
         }
     }
 
