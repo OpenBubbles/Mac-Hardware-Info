@@ -84,7 +84,7 @@ func getHwInfo() -> Bbhwinfo_HwInfo {
     
     return Bbhwinfo_HwInfo.with {
         $0.inner = Bbhwinfo_HwInfo.InnerHwInfo.with({
-            $0.productName = getItem(deviceTree, "product-name")?.trimmingCharacters(in: CharacterSet(["\0"])) ?? getItem(deviceTree, "model")!
+            $0.productName = (getItem(deviceTree, "product-name") ?? getItem(deviceTree, "model")!).trimmingCharacters(in: CharacterSet(["\0"]))
             $0.ioMacAddress = getMacAddress()
             $0.platformSerialNumber = getString(deviceTree, "IOPlatformSerialNumber")!
             $0.platformUuid = getString(deviceTree, "IOPlatformUUID")!

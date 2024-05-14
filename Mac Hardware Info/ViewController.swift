@@ -29,10 +29,8 @@ class ViewController: NSViewController {
         let qrState = QRCode.Document()
         qrState.data = getData()
         qrState.errorCorrection = .medium
-        qrState.design.shape.eye = QRCode.EyeShape.Circle()
-        qrState.design.shape.pupil = QRCode.PupilShape.Circle()
-        qrState.design.shape.onPixels = QRCode.PixelShape.Circle()
         qrState.design.backgroundColor(.clear)
+        qrState.design.foregroundColor(NSColor.labelColor.cgColor)
         qrCodeView.document  = qrState
     }
     
