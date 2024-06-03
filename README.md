@@ -4,8 +4,8 @@ Mac-Hardware-Info is a companion app to [OpenBubbles](https://github.com/TaeHage
 
 ## Important Notice
 
-- Mac-Hardware-Info **must** be run on a real Mac.
-- It will not function correctly on virtual machines or Hackintosh setups.
+- It is recomended to run Mac-Hardware-Info on a **real** mac.
+- Running it on a virtual machine or other ways (e.g. a Hackintosh) may lead to problems with OpenBubbles.
 
 ## About OpenBubbles
 
@@ -20,7 +20,7 @@ To get started with Mac-Hardware-Info, follow these steps:
 
 1. Download the latest release from the [Releases page](https://github.com/TaeHagen/Mac-Hardware-Info/releases).
 2. Run the downloaded application.
-   - macOS will alert you that the app is from an unverified developer. Make sure to allow it to run.
+   - macOS will alert you that the app is from an unverified developer. Make sure to allow it to run. (Don't worry, the code is safe.)
 3. Follow the on-screen instructions to generate your unique code.
 4. You can either:
    - Scan the QR code from OpenBubbles.
