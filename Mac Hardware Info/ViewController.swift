@@ -7,12 +7,11 @@
 
 import Cocoa
 import QRCode
-import CryptoKit
 import CommonCrypto
 
 class ViewController: NSViewController {
 
-    @IBOutlet weak var preventSharing: NSSwitch!
+    @IBOutlet weak var preventSharing: NSButton!
     
     private var identifiers: Data = try! getHwInfo().serializedData()
     @IBOutlet weak var qrCodeView: QRCodeDocumentView!
@@ -65,7 +64,7 @@ class ViewController: NSViewController {
                 preHash = password + salt
             }
             
-            currentHash = Data(Insecure.MD5.hash(data: preHash))
+            currentHash = MD5(messageData: preHash)
             concatenatedHashes += currentHash
         }
         
@@ -137,7 +136,7 @@ class ViewController: NSViewController {
                 }
             }
             
-            let serverCode = Data(SHA256.hash(data: code.data(using: .utf8)!)).map { String(format: "%02x", $0) }.joined()
+            let serverCode = sha256(data: code.data(using: .utf8)!).map { String(format: "%02x", $0) }.joined()
             
             let encrypted = encryptAESDart(textData: getData(), passphrase: code)
             let url = URL(string: "https://openbubbles.app/code")!

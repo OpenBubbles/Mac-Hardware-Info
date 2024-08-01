@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import CryptoKit
 
 func getMainPort() -> mach_port_t {
     if #available(macOS 12.0, *) {
@@ -78,8 +77,7 @@ func getHwInfo() -> Bbhwinfo_HwInfo {
     if rom == nil {
         // m1
         let uniqueChipId = getData(chosenTree, "unique-chip-id")!
-        let digest = SHA256.hash(data: uniqueChipId)
-        rom = Data(digest.suffix(6))
+        rom = sha256(data: uniqueChipId).suffix(6)
     }
     
     return Bbhwinfo_HwInfo.with {

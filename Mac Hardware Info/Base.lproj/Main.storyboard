@@ -99,13 +99,6 @@
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <switch horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" baseWritingDirection="leftToRight" alignment="left" translatesAutoresizingMaskIntoConstraints="NO" id="Z0b-PI-ipl">
-                                <rect key="frame" x="335" y="535" width="114" height="25"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
-                                <connections>
-                                    <action selector="toggleChanged:" target="XfG-lQ-9wD" id="f5s-c4-K07"/>
-                                </connections>
-                            </switch>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="q66-jg-m31">
                                 <rect key="frame" x="15" y="513" width="402" height="16"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
@@ -139,11 +132,22 @@
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SqC-0L-nbN">
+                                <rect key="frame" x="390" y="539" width="18" height="18"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES"/>
+                                <buttonCell key="cell" type="check" bezelStyle="regularSquare" imagePosition="left" inset="2" id="6ew-NO-uAR">
+                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="toggleChanged:" target="XfG-lQ-9wD" id="gwk-LN-qHU"/>
+                                </connections>
+                            </button>
                         </subviews>
                     </view>
                     <connections>
                         <outlet property="onceDisclaimer" destination="nDH-ah-5NI" id="vci-QB-a2K"/>
-                        <outlet property="preventSharing" destination="Z0b-PI-ipl" id="Ncr-Aj-QYb"/>
+                        <outlet property="preventSharing" destination="SqC-0L-nbN" id="jDA-dw-Wnb"/>
                         <outlet property="qrCodeView" destination="m6R-mD-lKX" id="3j8-XA-0dJ"/>
                     </connections>
                 </viewController>

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6530B38C2C5B279A0044361C /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6530B38B2C5B279A0044361C /* Util.swift */; };
 		CE707B5D2BC9D60F00BBE745 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE707B5C2BC9D60F00BBE745 /* AppDelegate.swift */; };
 		CE707B5F2BC9D60F00BBE745 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE707B5E2BC9D60F00BBE745 /* ViewController.swift */; };
 		CE707B612BC9D61300BBE745 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE707B602BC9D61300BBE745 /* Assets.xcassets */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6530B38B2C5B279A0044361C /* Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
 		CE707B592BC9D60F00BBE745 /* Mac Hardware Info.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Mac Hardware Info.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE707B5C2BC9D60F00BBE745 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE707B5E2BC9D60F00BBE745 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -69,6 +71,7 @@
 				CE707B652BC9D61400BBE745 /* Mac_Hardware_Info.entitlements */,
 				CE707B6C2BC9D66D00BBE745 /* HwIdentifiers.swift */,
 				CE707B6B2BC9D66D00BBE745 /* mac_hw_info.pb.swift */,
+				6530B38B2C5B279A0044361C /* Util.swift */,
 			);
 			path = "Mac Hardware Info";
 			sourceTree = "<group>";
@@ -154,6 +157,7 @@
 			files = (
 				CE707B5F2BC9D60F00BBE745 /* ViewController.swift in Sources */,
 				CE707B6D2BC9D66E00BBE745 /* mac_hw_info.pb.swift in Sources */,
+				6530B38C2C5B279A0044361C /* Util.swift in Sources */,
 				CE707B5D2BC9D60F00BBE745 /* AppDelegate.swift in Sources */,
 				CE707B6E2BC9D66E00BBE745 /* HwIdentifiers.swift in Sources */,
 			);
@@ -302,7 +306,7 @@
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = "";
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -313,8 +317,8 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.15;
-				MARKETING_VERSION = 1.1;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MARKETING_VERSION = 1.2;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.bluebubbles.Mac-Hardware-Info";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -335,7 +339,7 @@
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = "";
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -346,8 +350,8 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.15;
-				MARKETING_VERSION = 1.1;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.bluebubbles.Mac-Hardware-Info";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
