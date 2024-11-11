@@ -15,7 +15,7 @@ func getMainPort() -> mach_port_t {
     }
 }
 
-func getMacAddress() -> Data {
+func getMacAddress() -> Data? {
     let filter = IOServiceMatching("IOEthernetInterface") as NSMutableDictionary
     filter["IOPropertyMatch"] = [
         "IOPrimaryInterface": true
@@ -24,13 +24,27 @@ func getMacAddress() -> Data {
     var iterator: io_iterator_t = 0
     IOServiceGetMatchingServices(getMainPort(), filter, &iterator)
     
-    let ethService = IOIteratorNext(iterator)
+    var ethService: io_object_t = IOIteratorNext(iterator)
     
-    var parentService: io_registry_entry_t = 0
-    IORegistryEntryGetParentEntry(ethService, kIOServicePlane, &parentService)
+    if ethService == 0 {
+        //this should fix this on hackintoshes (e.g mine) that dont support ethernet.
+        let wifiFilter = IOServiceMatching("IO80211Interface") as NSMutableDictionary
+        var wifiIterator: io_iterator_t = 0
+        IOServiceGetMatchingServices(getMainPort(), wifiFilter, &wifiIterator)
+        
+        ethService = IOIteratorNext(wifiIterator)
+    }
     
-    return getData(parentService, "IOMACAddress")!
+    if ethService != 0 {
+        var parentService: io_registry_entry_t = 0
+        IORegistryEntryGetParentEntry(ethService, kIOServicePlane, &parentService)
+        
+        return getData(parentService, "IOMACAddress")
+    }
+    
+    return nil
 }
+
 
 //func getRootDiskUuid() -> String {
 //    return (try? URL(fileURLWithPath: "/").resourceValues(forKeys: [.volumeUUIDStringKey]))?.volumeUUIDString ?? ""
@@ -83,7 +97,7 @@ func getHwInfo() -> Bbhwinfo_HwInfo {
     return Bbhwinfo_HwInfo.with {
         $0.inner = Bbhwinfo_HwInfo.InnerHwInfo.with({
             $0.productName = (getItem(deviceTree, "product-name") ?? getItem(deviceTree, "model")!).trimmingCharacters(in: CharacterSet(["\0"]))
-            $0.ioMacAddress = getMacAddress()
+            $0.ioMacAddress = getMacAddress()!
             $0.platformSerialNumber = getString(deviceTree, "IOPlatformSerialNumber")!
             $0.platformUuid = getString(deviceTree, "IOPlatformUUID")!
             $0.rootDiskUuid = getItem(chosenTree, "boot-uuid")!.trimmingCharacters(in: CharacterSet(["\0"]))
