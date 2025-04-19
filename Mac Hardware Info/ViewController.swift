@@ -139,7 +139,7 @@ class ViewController: NSViewController {
             let serverCode = sha256(data: code.data(using: .utf8)!).map { String(format: "%02x", $0) }.joined()
             
             let encrypted = encryptAESDart(textData: getData(), passphrase: code)
-            let url = URL(string: "https://openbubbles.app/code")!
+            let url = URL(string: "https://hw.openbubbles.app/code")!
             var request = URLRequest(url: url)
             request.httpMethod = "POST"
             
